@@ -5,6 +5,22 @@
     <title>主页</title>
 </head>
 <body>
-<h1>这是一个页面</h1>
+
+
+<div class="userlist" th:unless="${#lists.isEmpty(allDict)}">
+    <table>
+        <thead>
+        <tr>
+            <th>Word</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="dict : ${allDict}">
+            <td th:text="${dict.word}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
 </body>
 </html>
