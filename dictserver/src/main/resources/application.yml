@@ -2,11 +2,10 @@ spring:
   application:
     name: dictserver
   datasource:
-    data: classpath:data.sql
     driver-class-name: org.h2.Driver
     password: ''
-    schema: classpath:schema.sql
-    url: jdbc:h2:file:~/test
+    # 缓存本地
+    url: jdbc:h2:file:./dictserver/2hdb
     username: san
   h2:
     console:
@@ -15,6 +14,15 @@ spring:
       settings:
         trace: true
         web-allow-others: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        use_sql_comments: true
+        format_sql: true
   thymeleaf:
     cache: true
     check-template: true
