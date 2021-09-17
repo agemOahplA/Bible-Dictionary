@@ -24,3 +24,5 @@ hs_err_pid*
 /.idea/
 *.iml
 /arthas-output/
+/dictserver/target/
+/dictserver/2hdb.mv.db
