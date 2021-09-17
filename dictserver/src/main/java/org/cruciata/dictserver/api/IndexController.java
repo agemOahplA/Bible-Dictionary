@@ -1,6 +1,5 @@
 package org.cruciata.dictserver.api;
 
-import org.cruciata.dictserver.api.resource.DictWordVO;
 import org.cruciata.dictserver.dataaccess.Dict;
 import org.cruciata.dictserver.dataaccess.DictRepository;
 import org.springframework.stereotype.Controller;
