@@ -12,11 +12,12 @@ public class Dict {
     private String word;
     private String wordEnglish;
     private String wordLatin;
-    @Column(columnDefinition ="TEXT")
+    @Column(columnDefinition = "TEXT")
     private String explanation;
 
 
-    public Dict(){}
+    public Dict() {
+    }
 
     public Dict(String id, String word, String wordEnglish, String wordLatin, String explanation) {
         this.id = id;
