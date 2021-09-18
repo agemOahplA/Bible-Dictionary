@@ -1,0 +1,10 @@
+version: '2'
+services:
+  dictserver:
+    container_name: dictserver
+    image: dict.cruciata.org/dictserver:1.0.0
+    restart: always
+    ports:
+      - 80:8080
+    volumes:
+      - /data/dictserver:/data/dictserver
