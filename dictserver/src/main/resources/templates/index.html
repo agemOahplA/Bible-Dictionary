@@ -44,7 +44,7 @@
         <div class="row">
             <div class="col">
                 <p> 使用说明</p>
-                <p> 搜索功能->搜索"辞典"和"辞典内"的关键字</p>
+                <p> 搜索功能->搜索"词汇"和"词汇内"的关键字</p>
             </div>
         </div>
 
@@ -70,7 +70,7 @@
         <!-- 搜索结果内容展示 -->
         <div class="row" th:unless="${#lists.isEmpty(explanationLike)}">
             <div class="col-12">
-                <h4 th:text="'辞典内含有 \''+${key}+'\' 关键字：'+${explanationLike.size()}+'条'"></h4>
+                <h4 th:text="'词汇内含有 \''+${key}+'\' 关键字：'+${explanationLike.size()}+'条'"></h4>
             </div>
             <div class="col-xs-6 col-sm-4 col-md-2" th:each="dict : ${explanationLike}" th:id="${dict.id}">
                 <a th:href="@{'/explanation/'+${dict.id}}">
@@ -84,7 +84,7 @@
         <!-- 全部展示 -->
         <div class="row" th:if="${#lists.isEmpty(wordLike) && #lists.isEmpty(explanationLike)}">
             <div class="col-12">
-                <h3>所有辞典</h3>
+                <h3>所有词汇</h3>
             </div>
         </div>
         <div class="row" th:each="row : ${rowColData}"
