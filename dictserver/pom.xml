@@ -35,12 +35,6 @@
             <scope>runtime</scope>
         </dependency>
         <dependency>
-            <groupId>com.taobao.arthas</groupId>
-            <artifactId>arthas-spring-boot-starter</artifactId>
-            <version>3.4.8</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
@@ -97,6 +91,9 @@
                 <version>2.3.7.RELEASE</version>
                 <configuration>
                     <mainClass>org.cruciata.dictserver.DictserverApplication</mainClass>
+                    <layers>
+                        <enabled>true</enabled>
+                    </layers>
                 </configuration>
                 <executions>
                     <execution>
