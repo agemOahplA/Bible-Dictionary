@@ -5,7 +5,7 @@ spring:
     driver-class-name: org.h2.Driver
     password: ''
     # 缓存本地
-#    url: jdbc:h2:file:./dictserver/2hdb
+    url: jdbc:h2:file:./dictserver/2hdb
     username: san
   h2:
     console:
