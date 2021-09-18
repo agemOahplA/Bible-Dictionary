@@ -74,9 +74,9 @@
             </div>
             <div class="col-xs-6 col-sm-4 col-md-2" th:each="dict : ${explanationLike}" th:id="${dict.id}">
                 <a th:href="@{'/explanation/'+${dict.id}}">
-                    <p class="text-secondary" th:text="${dict.word}"></p>
+                    <p class="text-primary" th:text="${dict.word}"></p>
                 </a>
-                <small class="text-primary" th:text="${dict.explanation}"></small>
+                <small class="text-secondary" th:text="${dict.explanation}"></small>
             </div>
         </div>
 
