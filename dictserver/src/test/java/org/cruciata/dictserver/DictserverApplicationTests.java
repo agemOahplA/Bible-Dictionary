@@ -17,9 +17,6 @@ class DictserverApplicationTests {
     @Test
     void contextLoads() {
 
-        List<Dict> all = dictRepository.findAll();
-        System.out.println(all);
-
     }
 
 }
