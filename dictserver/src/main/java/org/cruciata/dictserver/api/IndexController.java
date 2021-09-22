@@ -33,15 +33,16 @@ public class IndexController {
             model.addAttribute("wordLike", wordLike);
             List<Dict> explanationLike = dictRepository.findByExplanationLike("%" + key + "%");
             String finalKey = key;
+            String mark = "<mark>"+finalKey+"</mark>";
             explanationLike.forEach(dict -> {
                 int length = dict.getExplanation().length();
                 int index = dict.getExplanation().indexOf(finalKey);
                 int min = Math.min(length, index + 20);
                 if (min == length) {
                     int max = Math.max(0, index - 20);
-                    dict.setExplanation(dict.getExplanation().substring(max, index));
+                    dict.setExplanation(dict.getExplanation().substring(max, index).replace(finalKey,mark));
                 } else {
-                    dict.setExplanation(dict.getExplanation().substring(index, min));
+                    dict.setExplanation(dict.getExplanation().substring(index, min).replace(finalKey,mark));
                 }
             });
 

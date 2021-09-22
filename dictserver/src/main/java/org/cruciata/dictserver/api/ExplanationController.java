@@ -4,6 +4,7 @@ import org.cruciata.dictserver.dataaccess.Dict;
 import org.cruciata.dictserver.dataaccess.DictRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,11 +28,17 @@ public class ExplanationController {
 
 
     @GetMapping("/" + PATH_DICT_ID)
-    public String explanation(@PathVariable(PATH_VARIABLE_DICT_ID) String dictId, Model model) {
+    public String explanation(@PathVariable(PATH_VARIABLE_DICT_ID) String dictId,String key, Model model) {
+        System.out.println(key);
+        Optional<Dict> optionalDict = dictRepository.findById(dictId);
 
-        Optional<Dict> byId = dictRepository.findById(dictId);
-
-        model.addAttribute("dict", byId.get());
+        String mark = "<mark>"+key+"</mark>";
+        optionalDict.ifPresent(dict -> {
+            if(!StringUtils.isEmpty(key)){
+                dict.setExplanation(dict.getExplanation().replaceAll(key,mark));
+            }
+        });
+        model.addAttribute("dict",optionalDict.get());
 
         return "explanation";
     }

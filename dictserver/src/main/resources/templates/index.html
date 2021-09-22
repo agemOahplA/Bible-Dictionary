@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/html">
 <head>
     <!-- 必须的 meta 标签 -->
     <meta charset="utf-8">
@@ -52,7 +52,7 @@
         <div class="row" th:unless="${#lists.isEmpty(wordLike)}">
             <div class="col-12">
                 <!--                <span class="text-muted">匹配</span>-->
-                <!--                <span th:text="${key}"></span>-->
+                <!--                <span th:text="${key}"></span>-->吗
                 <!--                <span class="text-muted">关键字</span>-->
                 <!--                <span th:text="${wordLike.size()}"></span>-->
                 <!--                <span class="text-muted">条</span>-->
@@ -70,13 +70,12 @@
         <!-- 搜索结果内容展示 -->
         <div class="row" th:unless="${#lists.isEmpty(explanationLike)}">
             <div class="col-12">
-                <h4 th:text="'词汇内含有 \''+${key}+'\' 关键字：'+${explanationLike.size()}+'条'"></h4>
+                <h4 th:text="'解析内含有 \''+${key}+'\' 关键字：'+${explanationLike.size()}+'条'"></h4>
             </div>
-            <div class="col-xs-6 col-sm-4 col-md-2" th:each="dict : ${explanationLike}" th:id="${dict.id}">
-                <a th:href="@{'/explanation/'+${dict.id}}">
-                    <p class="text-primary" th:text="${dict.word}"></p>
-                </a>
-                <small class="text-secondary" th:text="${dict.explanation}"></small>
+            <div class="col-xs-6 col-sm-4 col-md-2 mb-3" th:each="dict : ${explanationLike}" th:id="${dict.id}">
+                <a th:href="@{'/explanation/'+${dict.id}+'?key='+${key}}" class="text-primary" th:text="${dict.word}"></a>
+                </br>
+                <small class="text-secondary" th:utext="${dict.explanation}"></small>
             </div>
         </div>
 

@@ -41,9 +41,8 @@
 
 <main class="container" role="main">
     <div class="jumbotron">
-        <h1 class="text-center" th:text="${dict.word}"></h1>
-        <p th:text="${dict.explanation}"></p>
-
+        <h1 class="text-center mt-5" th:text="${dict.word}"></h1>
+        <p th:utext="${dict.explanation}"></p>
         <blockquote class="blockquote text-right">
             <footer class="blockquote-footer">作者 <cite title="Source Title">思高圣经学会</cite></footer>
         </blockquote>

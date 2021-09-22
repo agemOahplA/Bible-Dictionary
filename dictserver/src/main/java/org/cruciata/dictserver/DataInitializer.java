@@ -30,10 +30,7 @@ public class DataInitializer implements CommandLineRunner {
     private static String readJson() {
         ClassLoader classLoader = ClassLoader.getSystemClassLoader();
         URL resource = classLoader.getResource("BibleDictionary.json");
-        String filePath = "/data/dictserver/BibleDictionary.json";
-        if(resource!=null){
-            filePath = resource.getFile();
-        }
+        String filePath = resource==null?"/data/dictserver/BibleDictionary.json":resource.getFile();
         File file = new File(filePath);
         try {
             InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(file), "utf-8");
