@@ -47,7 +47,7 @@ public class DataInitializer implements CommandLineRunner {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "";
+        return new String();
     }
 
     @Override
