@@ -36,6 +36,7 @@ public class ExplanationController {
         String mark = "<mark>"+key+"</mark>";
         optionalDict.ifPresent(dict -> {
             if(!StringUtils.isEmpty(key)){
+                //替换key
                 dict.setExplanation(dict.getExplanation().replaceAll(key,mark));
             }
         });
