@@ -42,7 +42,7 @@ public class ExplanationController {
         });
         //添加返回model
         model.addAttribute("dict",optionalDict.get());
-
+        //返回页面
         return "explanation";
     }
 }
