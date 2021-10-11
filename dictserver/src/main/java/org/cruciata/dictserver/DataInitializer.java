@@ -30,6 +30,7 @@ public class DataInitializer implements CommandLineRunner {
     private static String readJson() {
         ClassLoader classLoader = ClassLoader.getSystemClassLoader();
         URL resource = classLoader.getResource("BibleDictionary.json");
+        // 生成环境 resource 等于null 从docker volumes 读取BibleDictionary.json
         String filePath = resource==null?"/data/dictserver/BibleDictionary.json":resource.getFile();
         File file = new File(filePath);
         try {
@@ -46,7 +47,7 @@ public class DataInitializer implements CommandLineRunner {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "";
+        return new String();
     }
 
     @Override
