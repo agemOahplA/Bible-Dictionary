@@ -32,6 +32,7 @@ public class ExplanationController {
         System.out.println(key);
         Optional<Dict> optionalDict = dictRepository.findById(dictId);
 
+        //循环修改所有key
         String mark = "<mark>"+key+"</mark>";
         optionalDict.ifPresent(dict -> {
             if(!StringUtils.isEmpty(key)){
