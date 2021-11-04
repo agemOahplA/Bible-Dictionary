@@ -40,8 +40,9 @@ public class ExplanationController {
                 dict.setExplanation(dict.getExplanation().replaceAll(key,mark));
             }
         });
+        //添加返回model
         model.addAttribute("dict",optionalDict.get());
-
+        //返回页面
         return "explanation";
     }
 }
