@@ -62,23 +62,26 @@ public class Test02 {
         }
 
         if (jsonObject.containsKey("name")) {
-            if ("text".equals(node.getType())) {
-                node.setName(jsonObject.getString("name").replaceAll(" "," "));
-                if (node.getName().equals("“父啊！……永生就是：认识祢，唯一的真天主，和祢所派遣来的耶稣基督”(若 17:3)。“我们的救主天主，……愿意所有的人都得救，并得以认识真理”(弟前 2:3‐4)。除了耶稣的名字外，“在天下人间，没有赐下别的名字，使我们赖以得救的”(宗 4:12)。")) {
 
-                } else {
-                    String name = jsonObject.getString("name");
-                    String id = name.substring(0, name.indexOf(".")).trim().replaceAll(" ", "");
+            String name = jsonObject.getString("name").replaceAll(" ", " ");
+
+            if ("text".equals(node.getType())) {
+                node.setName(name);
+                if (!node.getName().equals("“父啊！……永生就是：认识祢，唯一的真天主，和祢所派遣来的耶稣基督”(若 17:3)。“我们的救主天主，……愿意所有的人都得救，并得以认识真理”(弟前 2:3‐4)。除了耶稣的名字外，“在天下人间，没有赐下别的名字，使我们赖以得救的”(宗 4:12)。")) {
+
+                    String id = name.substring(0, name.indexOf(".")).trim();
+
                     node.setId(id);
 
-                    if (node.getId().equals(String.valueOf(list.size()))) {
-                    } else {
-                        System.out.println("校验不通过" + node.getId() + "=" + list.size());
+                    // 校验
+                    if (!node.getId().equals(String.valueOf(list.size()))) {
+                        System.out.println("校验不通过 有遗漏" + node.getId() + "=" + list.size());
                     }
                 }
+
                 list.add(node);
             } else {
-                node.setName(jsonObject.getString("name").replaceAll(" "," "));
+                node.setName(name);
             }
 
             if ("sub-title".equals(node.getType())) {
@@ -124,6 +127,7 @@ public class Test02 {
             Object object = jsonArray.get(i);
             JSONObject json = (JSONObject) object;
             json.put("id", node.getId() + "-" + i);
+
             Node child = toNode(json);
             // 父ID
             child.setParentId(node.getId());
