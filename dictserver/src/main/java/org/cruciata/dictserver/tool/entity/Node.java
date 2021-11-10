@@ -1,13 +1,23 @@
 package org.cruciata.dictserver.tool.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Node {
+    @JSONField(ordinal=1)
     private String id;
+    @JSONField(ordinal=2)
     private String parentId;
-    private String name;
+    @JSONField(ordinal=3)
     private String type;
+    @JSONField(ordinal=4)
+    private String name;
+    @JSONField(ordinal=5)
+    private boolean leaf;
+    @JSONField(ordinal=6)
+    private List<Node> children;
 
     public String getId() {
         return id;
@@ -57,6 +67,5 @@ public class Node {
         this.children = children;
     }
 
-    private boolean leaf;
-    private List<Node> children;
+
 }
