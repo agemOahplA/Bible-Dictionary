@@ -1,3 +1,6 @@
+# 赞助
+![IntelliJ IDEA logo](https://resources.jetbrains.com/storage/products/company/brand/logos/IntelliJ_IDEA.svg)
+
 # 在线思高版圣经词典
 
 # 介绍
