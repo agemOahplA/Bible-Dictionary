@@ -2,9 +2,19 @@ version: '2'
 services:
   dictserver:
     container_name: dictserver
-    image: dict.cruciata.org/dictserver:1.0.0
+    image: dict.vivevia.info/dictserver:1.0.0
     restart: always
     ports:
       - 8080:8080
     volumes:
       - /data/dictserver:/data/dictserver
+    networks:
+      - default
+    labels:
+      - traefik.http.routers.whoami.rule=Host(`vivevia.info`)
+      - traefik.http.routers.whoami.tls=true
+      - traefik.http.routers.whoami.tls.certresolver=dictserver
+networks:
+  default:
+    external:
+      name: traefik_default
